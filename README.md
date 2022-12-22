@@ -3,6 +3,9 @@
 
 Description:
   This script creates 2 lists of diferent intensities of perlin noise and adds them together to add diferent layers. it then goes through each value and if it is within a certian range, it gives it a specific color (layers of terain). it then displays the colored list on the screen using pygame.
+  
+
+Link: Here is the link but be warned this code in uncomented and im a child so wtv good luck https://replit.com/@YellowSquash262/Multi-layer-noise-Terrain-simulator#main.py:~:text=Pane%20Actions-,Output,-Pane%20Actions
 
 
 Deatailed description:
@@ -22,6 +25,9 @@ Deatailed description:
   
   
 Why this is ground breaking:
-  Im new to GitHub this is my first rep and i would really apritiate it if u upvoted it or whatever GitHub has, this isn't ground breaking but whatever thanks bye feel free to copy or wtv. 
+  Im new to GitHub this is my first rep and i would really apritiate it if u upvoted it or whatever GitHub has, this isn't ground breaking but whatever thanks bye feel free to copy or wtv. if u wanna give me money im down.
   
   :) Max
+  
+  
+
