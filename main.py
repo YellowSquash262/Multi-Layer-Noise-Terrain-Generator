@@ -1,14 +1,12 @@
 import random
 
-rowsV = 1000
+rows = 300
+screensize = 1000
+intensity = 2000
 
-screenSizeV = 1000
-intensityV = 2000
 changeV = 1
 smoothingV = 4
 
-screenSizeV2 = 400
-intensityV2 = 2000
 changeV2 = 1
 smoothingV2 = 50
 
@@ -17,13 +15,13 @@ noise1 = []
 noise2 = []
 noiseEnd = []
 
-for a in range(rowsV):
+for a in range(rows):
     nested = []
-    for b in range(rowsV): 
+    for b in range(rows): 
       nested.append(0)
     noiseEnd.append(nested[:])
 
-def noise(intensity, change, smoothing, rows):
+def noise(change, smoothing):
   list = []
   for a in range(rows):
     nested = []
@@ -67,11 +65,11 @@ def noise(intensity, change, smoothing, rows):
 
 import pygame
 
-noise1 = noise(intensityV, changeV, smoothingV, rowsV)
-noise2 = noise(intensityV2, changeV2, smoothingV2, rowsV)
+noise1 = noise(changeV, smoothingV)
+noise2 = noise(changeV2, smoothingV2)
 
-for x in range(rowsV):
-    for y in range(rowsV):
+for x in range(rows):
+    for y in range(rows):
         noiseEnd[x][y]=noise1[x][y]*1+noise2[x][y]*10
 
 maximum = 0
@@ -88,7 +86,7 @@ blue = 0
 pygame.init()
 
 # create screen
-screen = pygame.display.set_mode((screenSizeV, screenSizeV))
+screen = pygame.display.set_mode((screensize, screensize))
 
 #icon
 icon1 = pygame.image.load('icon.png')
@@ -97,8 +95,8 @@ pygame.display.set_icon(icon1)
 # title
 pygame.display.set_caption("sound")
 
-for x3 in range(rowsV):
-      for y3 in range(rowsV):
+for x3 in range(rows):
+      for y3 in range(rows):
         if noiseEnd[x3][y3] < minimum:
           minimum = noiseEnd[x3][y3]
         if noiseEnd[x3][y3] > maximum:
@@ -109,8 +107,8 @@ print(total)
 
 running = True
 while running:
-    for x2 in range(rowsV):
-      for y2 in range(rowsV):
+    for x2 in range(rows):
+      for y2 in range(rows):
             Cintensity = 255 - maximum*(255/total) + (noiseEnd[x2][y2]*(255/total))
             Cintensity = int(Cintensity)
             red = 0
@@ -143,7 +141,7 @@ while running:
               red = 200
               green = 200
               blue = 200
-            pygame.draw.rect(screen,(red,green,blue),(x2*(screenSizeV/rowsV),y2*(screenSizeV/rowsV),screenSizeV/rowsV+rowsV/10,screenSizeV/rowsV+rowsV/10))
+            pygame.draw.rect(screen,(red,green,blue),(x2*(screensize/rows),y2*(screensize/rows),screensize/rows+rows/10,screensize/rows+rows/10))
             
 
     # update screen
